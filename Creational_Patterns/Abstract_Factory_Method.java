@@ -31,7 +31,7 @@ class NYPizzaStore extends PizzaStore {
     @Override
     public Pizza createPizza(String type) {
         Pizza pizza = null;
-        // ingredient로 변경
+        // change ingredient
         PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
         if(type.equals("cheese")){
             pizza = new CheesePizza(ingredientFactory);
@@ -61,7 +61,7 @@ abstract class Pizza {
     Sauce sauce;
     ArrayList<String> toppings = new ArrayList<>();
 
-    abstract public void prepare(); // factory method와 다르게 하위 클래스에 위임
+    abstract public void prepare(); // delegate to sub class <-> factory method
 
     void bake() {
         System.out.println("Bake for 25 minutes at 350");
@@ -112,7 +112,7 @@ interface PizzaIngredientFactory {
 class NYPizzaIngredientFactory implements PizzaIngredientFactory {
     @Override
     public Dough createDough() {
-        return new ThinCrustDough(); // ConcreteProduct class 사용
+        return new ThinCrustDough(); // use ConcreteProduct class
     }
     @Override
     public Sauce createSauce() {

@@ -27,7 +27,7 @@ abstract class PizzaStore {
     abstract Pizza createPizza(String type);
 }
 
-// ConcreteCreate Class 1 - ConcreteProduct Class 사용
+// ConcreteCreate Class 1 - use ConcreteProduct Class 
 class NYPizzaStore extends PizzaStore {
     @Override
     Pizza createPizza(String type) {
